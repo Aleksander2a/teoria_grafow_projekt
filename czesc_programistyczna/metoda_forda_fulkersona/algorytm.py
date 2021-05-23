@@ -18,7 +18,9 @@ m_sasiedztwa = np.array(m_sasiedztwa)
 print(m_sasiedztwa)
 
 graf = nx.DiGraph()
-graf.add_nodes_from(range(m_sasiedztwa.shape[0]))
+for i in range(m_sasiedztwa.shape[0]):
+    graf.add_node(i, index=i)
+# graf.add_nodes_from(range(m_sasiedztwa.shape[0]))
 print(graf.nodes)
 
 for i in range(m_sasiedztwa.shape[0]):
@@ -27,11 +29,8 @@ for i in range(m_sasiedztwa.shape[0]):
             graf.add_weighted_edges_from([(i, j, m_sasiedztwa[i][j])])
 
 print(graf.edges)
-# print(graf.successors())
+# print(list(graf.successors(0)))
 nx.draw_spectral(graf, with_labels=True, font_weight='bold')
 # plt.subplot(122)
 # nx.draw_shell(graf, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
 plt.show()
-
-
-
