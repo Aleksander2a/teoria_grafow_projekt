@@ -1,1 +1,1 @@
-# metoda_forda_fulkersona
+# Teoria grafów - projekt
