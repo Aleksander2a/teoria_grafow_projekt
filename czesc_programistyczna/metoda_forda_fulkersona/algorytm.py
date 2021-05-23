@@ -99,4 +99,5 @@ def stworz_siec_residualna():
                 # graph[i][j]["przeplyw"] = 0  # inicjalizajca przeplywu krawedzi
                 graph[i][j]["poczatek"] = i
                 graph[i][j]["koniec"] = j
+    return graph
 
