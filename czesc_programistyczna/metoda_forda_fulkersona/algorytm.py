@@ -99,39 +99,6 @@ def stworz_siec_residualna():
 
 
 # print(list(graf.predecessors(6)))
-
-def find_bottleneck_on_augmenting_path(odwiedzone, graph):
-    index = zrodlo
-    visited = []
-    visited.append(index)
-    queue = []
-    queue.append(index)
-    while queue:
-        index = queue[0]
-        queue.pop(0)
-        if index == ujscie:
-            break
-        nastepni = list(graph.successors(index))
-        for node in nastepni:
-            if przepustowosc_residualna[index][node] > 0 and node not in visited:
-                visited.append(node)
-                queue.append(node)
-    if ujscie not in visited:
-        return 0
-    bottle_neck = 100000
-    v = ujscie
-    size = len(visited) - 2
-    while size >= 0:
-        if przepustowosc_residualna[visited[size]][visited[size+1]] > 0:
-            if visited[size+1] not in odwiedzone:
-                odwiedzone.append(visited[size+1])
-            if visited[size] not in odwiedzone:
-                odwiedzone.append(visited[size])
-            bottle_neck = min(bottle_neck, przepustowosc_residualna[visited[size]][visited[size+1]])
-    odwiedzone = odwiedzone.reverse()
-    return bottle_neck
-
-
     # index = zrodlo
     # przepustowosc_residualna_licz(graf)
     # siec_residualna = stworz_siec_residualna()
@@ -149,32 +116,68 @@ def find_bottleneck_on_augmenting_path(odwiedzone, graph):
     #
     # odwiedzone = visited
     # return min(bottlnecks_values)
-
-def max_przeplyw():
+# print("-------------------------")
+# x = max_przeplyw()
+# print(x)
+# sciezki = []
+# for i in nx.all_simple_paths(graf, zrodlo, ujscie):
+#     print(i)
+#     sciezki.append(i)
+# print("min")
+# print(min(sciezki))
+def znajd_sciezke(G):
+    sciezka = []
+    wszystkie_sciezki = []
+    minim_dlugosc = 10000
+    for i in nx.all_simple_paths(G, zrodlo, ujscie):
+        wszystkie_sciezki.append(i)
+        if len(i) < minim_dlugosc:
+            minim_dlugosc = len(i)
+            sciezka = i
+    return sciezka
+# przepustowosc_residualna_licz(graf)
+# siec = stworz_siec_residualna()
+# print("+++++++++++++++++")
+# print(znajd_sciezke(siec))
+def find_bottle_neck(sciezka):
     istnieje = True
     bottle_necks = []
     while istnieje:
-        odwiedzone = []
-        przepustowosc_residualna_licz(graf)
-        siec =stworz_siec_residualna()
-        wartosc = find_bottleneck_on_augmenting_path(odwiedzone, siec)
-        if wartosc == 0:
+        p = sciezka
+        if not p:
             istnieje = False
-        bottle_necks.append(wartosc)
-        for i in odwiedzone:
-            if i != ujscie:
-                nastepni = list(graf.successors(i))
-                if (i+1) in nastepni:
-                    graf[i][i+1]['przeplyw'] += wartosc
+        index = 0
+        while index < len(p) - 1:
+            bottle_necks.append(przepustowosc_residualna[p[index]][p[index+1]])
+            index += 1
+        return min(bottle_necks)
+    return 0
+
+
+def max_flow(G):
+    istnieje = True
+    min_bottle_necks = []
+    while istnieje:
+        przepustowosc_residualna_licz(graf)
+        siec_residualna = stworz_siec_residualna()
+        sciezka = znajd_sciezke(siec_residualna)
+        if not sciezka:
+            istnieje = False
+        else:
+            bottle_neck = find_bottle_neck(sciezka)
+            min_bottle_necks.append(bottle_neck)
+            index = 0
+            while index < len(sciezka) - 1:
+                if m_sasiedztwa[sciezka[index]][sciezka[index+1]] > 0:
+                    G[sciezka[index]][sciezka[index+1]]['przeplyw'] += bottle_neck
                 else:
-                    graf[i+1][i]['przeplyw'] -= wartosc
-        odwiedzone.clear()
-    max_flow = 0
-    for i in bottle_necks:
-        max_flow += i
-    return max_flow
+                    G[sciezka[index+1]][sciezka[index]]['przeplyw'] -= bottle_neck
+                index += 1
+    suma = 0
+    for i in min_bottle_necks:
+        suma += i
+    return suma
 
-
-# x = max_przeplyw()
-# print(x)
-
+x = max_flow(graf)
+print("MAX: ")
+print(x)
