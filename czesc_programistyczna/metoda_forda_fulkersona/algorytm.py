@@ -7,7 +7,7 @@ blad = True
 while blad:
     try:
         # plik = input("Podaj nazwe pliku z danymi: ")
-        with open('przyklad.json') as json_file:
+        with open('przyklad2.json') as json_file:
             m_sasiedztwa = json.load(json_file)
             blad = False
     except FileNotFoundError:
