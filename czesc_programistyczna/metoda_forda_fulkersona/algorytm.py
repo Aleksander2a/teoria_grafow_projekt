@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import json
 import networkx as nx
 import numpy as np
