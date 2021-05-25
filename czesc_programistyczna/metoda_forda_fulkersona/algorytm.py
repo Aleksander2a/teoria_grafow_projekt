@@ -15,12 +15,13 @@ while blad:
         blad = True
 
 m_sasiedztwa = np.array(m_sasiedztwa)
-print(m_sasiedztwa)
+# print(m_sasiedztwa)
 
 graf = nx.DiGraph()
 for i in range(m_sasiedztwa.shape[0]):
-    graf.add_node(i, index=i)
-print(graf.nodes)
+    graf.add_node(i)
+
+# print(graf.nodes)
 
 for i in range(m_sasiedztwa.shape[0]):
     for j in range(m_sasiedztwa.shape[1]):
@@ -30,23 +31,18 @@ for i in range(m_sasiedztwa.shape[0]):
             graf[i][j]["poczatek"] = i
             graf[i][j]["koniec"] = j
 
-print(graf.edges)
+# print(graf.edges)
 # print(list(graf.successors(0)))
 nx.draw_spectral(graf, with_labels=True, font_weight='bold')
 # plt.subplot(122)
 # nx.draw_shell(graf, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
-plt.show()
+# plt.show()
 
 
-def nodes(g):
-    return list(g.nodes)
 
-def edges(g):
-    return list(g.edges)
+wierzcholki = list(graf.nodes)
 
-wierzcholki = nodes(graf)
-
-krawedzie = edges(graf)
+krawedzie = list(graf.edges)
 
 ilosc_wierzcholkow = m_sasiedztwa.shape[0]
 
@@ -55,8 +51,8 @@ ilosc_wierzcholkow = m_sasiedztwa.shape[0]
 # print(krawedzie[1])
 # print(graf[0][2])
 
-zrodlo = graf[0]
-ujscie = graf[6]
+zrodlo = 0
+ujscie = m_sasiedztwa.shape[0] - 1
 
 # siec_residualna.add_node(10)
 # print(nodes(graf))
@@ -84,20 +80,101 @@ def przepustowosc_residualna_licz(graph):
                 przepustowosc_residualna[i][j] = 0
 
 
-przepustowosc_residualna_licz(graf)
-print(przepustowosc_residualna)
+# przepustowosc_residualna_licz(graf)
+# print(przepustowosc_residualna)
 
 def stworz_siec_residualna():
     graph = nx.DiGraph()
     for i in range(przepustowosc_residualna.shape[0]):
-        graph.add_node(i, index=i)
+        graph.add_node(i)
 
     for i in range(przepustowosc_residualna.shape[0]):
         for j in range(przepustowosc_residualna.shape[1]):
             if przepustowosc_residualna[i][j] != 0:
                 graph.add_weighted_edges_from([(i, j, przepustowosc_residualna[i][j])])
-                # graph[i][j]["przeplyw"] = 0  # inicjalizajca przeplywu krawedzi
+                graph[i][j]["przeplyw"] = 0  # inicjalizajca przeplywu krawedzi
                 graph[i][j]["poczatek"] = i
                 graph[i][j]["koniec"] = j
     return graph
+
+
+# print(list(graf.predecessors(6)))
+
+def find_bottleneck_on_augmenting_path(odwiedzone, graph):
+    index = zrodlo
+    visited = []
+    visited.append(index)
+    queue = []
+    queue.append(index)
+    while queue:
+        index = queue[0]
+        queue.pop(0)
+        if index == ujscie:
+            break
+        nastepni = list(graph.successors(index))
+        for node in nastepni:
+            if przepustowosc_residualna[index][node] > 0 and node not in visited:
+                visited.append(node)
+                queue.append(node)
+    if ujscie not in visited:
+        return 0
+    bottle_neck = 100000
+    v = ujscie
+    size = len(visited) - 2
+    while size >= 0:
+        if przepustowosc_residualna[visited[size]][visited[size+1]] > 0:
+            if visited[size+1] not in odwiedzone:
+                odwiedzone.append(visited[size+1])
+            if visited[size] not in odwiedzone:
+                odwiedzone.append(visited[size])
+            bottle_neck = min(bottle_neck, przepustowosc_residualna[visited[size]][visited[size+1]])
+    odwiedzone = odwiedzone.reverse()
+    return bottle_neck
+
+
+    # index = zrodlo
+    # przepustowosc_residualna_licz(graf)
+    # siec_residualna = stworz_siec_residualna()
+    # visited = []
+    # visited.append(zrodlo)
+    # bottlnecks_values = []
+    # while index != ujscie:
+    #     nastepni = list(siec_residualna.successors(index))
+    #     for i in nastepni:
+    #         if przepustowosc_residualna[index][i] > 0 and i not in visited:
+    #             bottlnecks_values.append(przepustowosc_residualna[index][i])
+    #             index = i
+    #             visited.append(i)
+    #             break
+    #
+    # odwiedzone = visited
+    # return min(bottlnecks_values)
+
+def max_przeplyw():
+    istnieje = True
+    bottle_necks = []
+    while istnieje:
+        odwiedzone = []
+        przepustowosc_residualna_licz(graf)
+        siec =stworz_siec_residualna()
+        wartosc = find_bottleneck_on_augmenting_path(odwiedzone, siec)
+        if wartosc == 0:
+            istnieje = False
+        bottle_necks.append(wartosc)
+        for i in odwiedzone:
+            if i != ujscie:
+                nastepni = list(graf.successors(i))
+                if (i+1) in nastepni:
+                    graf[i][i+1]['przeplyw'] += wartosc
+                else:
+                    graf[i+1][i]['przeplyw'] -= wartosc
+        odwiedzone.clear()
+    max_flow = 0
+    for i in bottle_necks:
+        max_flow += i
+    return max_flow
+
+
+# x = max_przeplyw()
+# print(x)
 
