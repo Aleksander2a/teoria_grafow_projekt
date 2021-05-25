@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import json
 import networkx as nx
@@ -141,11 +141,11 @@ for edge in list(graf.edges):
 print("Krawędzie: (poczatek, koniec): przeplyw/przepustowosc")
 print(labels)
 
+print("Maksymalny przeplyw w danym grafie wynosi: ", x)
+
 nx.draw_networkx_nodes(graf, pos)
 nx.draw_networkx_labels(graf, pos)
 nx.draw_networkx_edges(graf, pos)
 
 nx.draw_networkx_edge_labels(graf, pos, label_pos=0.5, edge_labels=labels)
 plt.show()
-
-print("Maksymalny przeplyw w danym grafie wynosi: ", x)
