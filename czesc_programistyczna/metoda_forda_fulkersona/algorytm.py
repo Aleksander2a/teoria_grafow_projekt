@@ -30,9 +30,6 @@ for i in range(m_sasiedztwa.shape[0]):
             graf[i][j]["poczatek"] = i
             graf[i][j]["koniec"] = j
 
-nx.draw_spectral(graf, with_labels=True, font_weight='bold')
-plt.show()
-
 ilosc_wierzcholkow = m_sasiedztwa.shape[0]
 
 zrodlo = 0
@@ -137,4 +134,19 @@ print("Maksymalny przeplyw w danym grafie wynosi: ", x)
 
 # nx.draw_spectral(graf_przeplywu, with_labels=True, font_weight='bold')
 # plt.show()
+
+# nx.draw_spectral(graf, with_labels=True, font_weight='bold')
+pos = nx.spring_layout(graf)
+# nx.draw_networkx(graf, pos)
+# labels = nx.get_edge_attributes(graf, 'weight')
+labels = {}
+for edge in list(graf.edges):
+    labels[edge] = str(graf[edge[0]][edge[1]]['przeplyw']) + "/" + str(graf[edge[0]][edge[1]]['weight'])
+print(labels)
+# nx.draw_networkx_edge_labels(graf, pos, edge_labels=labels)
+nx.draw_networkx_nodes(graf, pos)
+nx.draw_networkx_labels(graf, pos)
+nx.draw_networkx_edges(graf, pos)
+nx.draw_networkx_edge_labels(graf, pos, edge_labels=labels)
+plt.show()
 
