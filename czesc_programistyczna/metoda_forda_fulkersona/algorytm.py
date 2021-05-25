@@ -130,23 +130,20 @@ graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
 print("Macierz sąsiedztwa z wartościami przepływu dla danego grafu to: ")
 print(macierz_przeplywu)
 
-print("Maksymalny przeplyw w danym grafie wynosi: ", x)
+pos = nx.spectral_layout(graf)
 
-# nx.draw_spectral(graf_przeplywu, with_labels=True, font_weight='bold')
-# plt.show()
-
-# nx.draw_spectral(graf, with_labels=True, font_weight='bold')
-pos = nx.spring_layout(graf)
-# nx.draw_networkx(graf, pos)
-# labels = nx.get_edge_attributes(graf, 'weight')
 labels = {}
 for edge in list(graf.edges):
     labels[edge] = str(graf[edge[0]][edge[1]]['przeplyw']) + "/" + str(graf[edge[0]][edge[1]]['weight'])
+
+print("Krawędzie: (poczatek, koniec): przeplyw/przepustowosc")
 print(labels)
-# nx.draw_networkx_edge_labels(graf, pos, edge_labels=labels)
+
 nx.draw_networkx_nodes(graf, pos)
 nx.draw_networkx_labels(graf, pos)
 nx.draw_networkx_edges(graf, pos)
-nx.draw_networkx_edge_labels(graf, pos, edge_labels=labels)
+
+nx.draw_networkx_edge_labels(graf, pos, label_pos=0.5, edge_labels=labels)
 plt.show()
 
+print("Maksymalny przeplyw w danym grafie wynosi: ", x)
