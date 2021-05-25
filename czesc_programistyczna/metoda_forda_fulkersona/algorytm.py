@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 blad = True
 while blad:
     try:
-        # plik = input("Podaj nazwe pliku z danymi: ")
-        with open('przyklad2.json') as json_file:
+        plik = input("Podaj nazwe pliku z danymi: ")
+        with open(plik) as json_file:
             m_sasiedztwa = json.load(json_file)
             blad = False
     except FileNotFoundError:
@@ -15,13 +15,12 @@ while blad:
         blad = True
 
 m_sasiedztwa = np.array(m_sasiedztwa)
-# print(m_sasiedztwa)
+print("Macierz sąsiedztwa z wagami dla danego grafu to: ")
+print(m_sasiedztwa)
 
 graf = nx.DiGraph()
 for i in range(m_sasiedztwa.shape[0]):
     graf.add_node(i)
-
-# print(graf.nodes)
 
 for i in range(m_sasiedztwa.shape[0]):
     for j in range(m_sasiedztwa.shape[1]):
@@ -31,41 +30,14 @@ for i in range(m_sasiedztwa.shape[0]):
             graf[i][j]["poczatek"] = i
             graf[i][j]["koniec"] = j
 
-# print(graf.edges)
-# print(list(graf.successors(0)))
 nx.draw_spectral(graf, with_labels=True, font_weight='bold')
-# plt.subplot(122)
-# nx.draw_shell(graf, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
-# plt.show()
-
-
-
-wierzcholki = list(graf.nodes)
-
-krawedzie = list(graf.edges)
+plt.show()
 
 ilosc_wierzcholkow = m_sasiedztwa.shape[0]
-
-# print(wierzcholki[1])
-# print(krawedzie[0]['weight'])
-# print(krawedzie[1])
-# print(graf[0][2])
 
 zrodlo = 0
 ujscie = m_sasiedztwa.shape[0] - 1
 
-# siec_residualna.add_node(10)
-# print(nodes(graf))
-# print(graf[0][1]['weight'])
-
-# def przeciwna_krawedz_X(edge):
-#     return edge[0]
-#
-#
-# def przeciwna_krawedz_Y(edge):
-#     return edge[1]
-#
-#
 przepustowosc_residualna = [[0]*ilosc_wierzcholkow]*ilosc_wierzcholkow
 przepustowosc_residualna = np.array(przepustowosc_residualna)
 
@@ -80,51 +52,21 @@ def przepustowosc_residualna_licz(graph):
                 przepustowosc_residualna[i][j] = 0
 
 
-# przepustowosc_residualna_licz(graf)
-# print(przepustowosc_residualna)
-
-def stworz_siec_residualna():
+def stworz_siec_residualna(macierz):
     graph = nx.DiGraph()
-    for i in range(przepustowosc_residualna.shape[0]):
+    for i in range(macierz.shape[0]):
         graph.add_node(i)
 
-    for i in range(przepustowosc_residualna.shape[0]):
-        for j in range(przepustowosc_residualna.shape[1]):
-            if przepustowosc_residualna[i][j] != 0:
-                graph.add_weighted_edges_from([(i, j, przepustowosc_residualna[i][j])])
+    for i in range(macierz.shape[0]):
+        for j in range(macierz.shape[1]):
+            if macierz[i][j] != 0:
+                graph.add_weighted_edges_from([(i, j, macierz[i][j])])
                 graph[i][j]["przeplyw"] = 0  # inicjalizajca przeplywu krawedzi
                 graph[i][j]["poczatek"] = i
                 graph[i][j]["koniec"] = j
     return graph
 
 
-# print(list(graf.predecessors(6)))
-    # index = zrodlo
-    # przepustowosc_residualna_licz(graf)
-    # siec_residualna = stworz_siec_residualna()
-    # visited = []
-    # visited.append(zrodlo)
-    # bottlnecks_values = []
-    # while index != ujscie:
-    #     nastepni = list(siec_residualna.successors(index))
-    #     for i in nastepni:
-    #         if przepustowosc_residualna[index][i] > 0 and i not in visited:
-    #             bottlnecks_values.append(przepustowosc_residualna[index][i])
-    #             index = i
-    #             visited.append(i)
-    #             break
-    #
-    # odwiedzone = visited
-    # return min(bottlnecks_values)
-# print("-------------------------")
-# x = max_przeplyw()
-# print(x)
-# sciezki = []
-# for i in nx.all_simple_paths(graf, zrodlo, ujscie):
-#     print(i)
-#     sciezki.append(i)
-# print("min")
-# print(min(sciezki))
 def znajd_sciezke(G):
     sciezka = []
     wszystkie_sciezki = []
@@ -135,10 +77,8 @@ def znajd_sciezke(G):
             minim_dlugosc = len(i)
             sciezka = i
     return sciezka
-# przepustowosc_residualna_licz(graf)
-# siec = stworz_siec_residualna()
-# print("+++++++++++++++++")
-# print(znajd_sciezke(siec))
+
+
 def find_bottle_neck(sciezka):
     istnieje = True
     bottle_necks = []
@@ -159,7 +99,7 @@ def max_flow(G):
     min_bottle_necks = []
     while istnieje:
         przepustowosc_residualna_licz(graf)
-        siec_residualna = stworz_siec_residualna()
+        siec_residualna = stworz_siec_residualna(przepustowosc_residualna)
         sciezka = znajd_sciezke(siec_residualna)
         if not sciezka:
             istnieje = False
@@ -178,6 +118,23 @@ def max_flow(G):
         suma += i
     return suma
 
+
 x = max_flow(graf)
-print("MAX: ")
-print(x)
+
+macierz_przeplywu = [[0]*ilosc_wierzcholkow]*ilosc_wierzcholkow
+macierz_przeplywu = np.array(macierz_przeplywu)
+for i in range(macierz_przeplywu.shape[0]):
+    for j in range(macierz_przeplywu.shape[1]):
+        if m_sasiedztwa[i][j] != 0:
+            macierz_przeplywu[i][j] = graf[i][j]['przeplyw']
+
+graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
+
+print("Macierz sąsiedztwa z wartościami przepływu dla danego grafu to: ")
+print(macierz_przeplywu)
+
+print("Maksymalny przeplyw w danym grafie wynosi: ", x)
+
+# nx.draw_spectral(graf_przeplywu, with_labels=True, font_weight='bold')
+# plt.show()
+
