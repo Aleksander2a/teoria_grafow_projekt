@@ -4,6 +4,7 @@ import json
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
+from prettytable import PrettyTable
 
 print("\nWitaj w programie do obliczania maksymalnego przepływu w grafie!!!\nGotowe przykłady to:\nprzyklad1.json   przyklad2.json   przyklad3.json")
 
@@ -129,35 +130,30 @@ for i in range(macierz_przeplywu.shape[0]):
 
 graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
 
-print("Macierz sąsiedztwa z wagami dla danego grafu to: ")
-print(m_sasiedztwa)
+print(0, "- Źródło   ", ilosc_wierzcholkow-1, "- Ujście")
 
-print("Macierz sąsiedztwa z wartościami\nprzepływu dla danego grafu to: ")
-# print(macierz_przeplywu)
-print("  |", end='')
-for i in range(macierz_przeplywu.shape[0] + 1):
-    for j in range(macierz_przeplywu.shape[1] + 1):
-        if i == 1 and j == 0:
-            print("--------------------------------")
-        if i == 0 and j == 0:
-            print(" ", j, end='')
-        elif i == 0 and j < ilosc_wierzcholkow and j > 0:
-            print("  ", j, end='')
-        elif j == 0 and i != 0:
-            print(i-1, "|  ", end='')
-        elif i > 0 and j > 0:
-            print(macierz_przeplywu[i-1][j-1], "  ", end='')
-        if j == ilosc_wierzcholkow:
-            print("")
+print("Macierz sąsiedztwa z wartościami przepływu/przepustowości dla danego grafu to: ")
+
+my_table = PrettyTable()
+naglowki = []
+naglowki.append("Wierzchołki")
+for i in graf.nodes:
+    naglowki.append(str(i))
+my_table.field_names = naglowki
+row = []
+for i in range(ilosc_wierzcholkow):
+    row.append(str(i))
+    for j in range(ilosc_wierzcholkow):
+        row.append(str(macierz_przeplywu[i][j]) + "/" + str(m_sasiedztwa[i][j]))
+    my_table.add_row(row)
+    row.clear()
+print(my_table)
 
 pos = nx.spectral_layout(graf)
 
 labels = {}
 for edge in list(graf.edges):
     labels[edge] = str(graf[edge[0]][edge[1]]['przeplyw']) + "/" + str(graf[edge[0]][edge[1]]['weight'])
-
-print("Krawędzie: (poczatek, koniec): przeplyw/przepustowosc")
-print(labels)
 
 print("Maksymalny przeplyw w danym grafie wynosi: ", x)
 
@@ -166,4 +162,4 @@ nx.draw_networkx_labels(graf, pos)
 nx.draw_networkx_edges(graf, pos)
 
 nx.draw_networkx_edge_labels(graf, pos, label_pos=0.5, edge_labels=labels)
-# plt.show()
+plt.show()
