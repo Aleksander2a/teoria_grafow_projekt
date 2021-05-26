@@ -19,8 +19,6 @@ while blad:
         blad = True
 
 m_sasiedztwa = np.array(m_sasiedztwa)
-print("Macierz sąsiedztwa z wagami dla danego grafu to: ")
-print(m_sasiedztwa)
 
 graf = nx.DiGraph()
 for i in range(m_sasiedztwa.shape[0]):
@@ -131,14 +129,19 @@ for i in range(macierz_przeplywu.shape[0]):
 
 graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
 
-print("Macierz sąsiedztwa z wartościami przepływu dla danego grafu to: ")
+print("Macierz sąsiedztwa z wagami dla danego grafu to: ")
+print(m_sasiedztwa)
+
+print("Macierz sąsiedztwa z wartościami\nprzepływu dla danego grafu to: ")
 # print(macierz_przeplywu)
-print("  ", end='')
+print("  |", end='')
 for i in range(macierz_przeplywu.shape[0] + 1):
     for j in range(macierz_przeplywu.shape[1] + 1):
         if i == 1 and j == 0:
             print("--------------------------------")
-        if i == 0 and j < ilosc_wierzcholkow:
+        if i == 0 and j == 0:
+            print(" ", j, end='')
+        elif i == 0 and j < ilosc_wierzcholkow and j > 0:
             print("  ", j, end='')
         elif j == 0 and i != 0:
             print(i-1, "|  ", end='')
