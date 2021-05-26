@@ -5,10 +5,12 @@ import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 
+print("\nWitaj w programie do obliczania maksymalnego przepływu w grafie!!!\nGotowe przykłady to:\nprzyklad1.json   przyklad2.json   przyklad3.json")
+
 blad = True
 while blad:
     try:
-        plik = input("Podaj nazwe pliku z danymi: ")
+        plik = input("Wybierz jeden z gotowych plików lub podaj nazwę własnego pliku z danymi: ")
         with open(plik) as json_file:
             m_sasiedztwa = json.load(json_file)
             blad = False
@@ -130,7 +132,20 @@ for i in range(macierz_przeplywu.shape[0]):
 graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
 
 print("Macierz sąsiedztwa z wartościami przepływu dla danego grafu to: ")
-print(macierz_przeplywu)
+# print(macierz_przeplywu)
+print("  ", end='')
+for i in range(macierz_przeplywu.shape[0] + 1):
+    for j in range(macierz_przeplywu.shape[1] + 1):
+        if i == 1 and j == 0:
+            print("--------------------------------")
+        if i == 0 and j < ilosc_wierzcholkow:
+            print("  ", j, end='')
+        elif j == 0 and i != 0:
+            print(i-1, "|  ", end='')
+        elif i > 0 and j > 0:
+            print(macierz_przeplywu[i-1][j-1], "  ", end='')
+        if j == ilosc_wierzcholkow:
+            print("")
 
 pos = nx.spectral_layout(graf)
 
@@ -148,4 +163,4 @@ nx.draw_networkx_labels(graf, pos)
 nx.draw_networkx_edges(graf, pos)
 
 nx.draw_networkx_edge_labels(graf, pos, label_pos=0.5, edge_labels=labels)
-plt.show()
+# plt.show()
