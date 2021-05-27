@@ -18,12 +18,13 @@ Przykładowy graf:
 
 <p align="right">
 Reprezentacja macierzowa tego grafu wygląda następująco: 
+  </p>
 | Wierzchołki | 0 | 1 | 2 |
 |-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
 |      1      | 0 | 0 | 4 |
 |      2      | 0 | 0 | 0 |
-  </p>
+  
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
