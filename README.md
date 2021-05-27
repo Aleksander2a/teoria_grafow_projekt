@@ -14,7 +14,7 @@
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
 
 Przykładowy graf: 
-<width="200" height="200" src="https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/przyklad_grafu.jpg">
+<img align="center" width="200" height="200" src="https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/przyklad_grafu.jpg">
 
 Reprezentacja macierzowa tego grafu wygląda następująco: 
 | Wierzchołki | 0 | 1 | 2 |
