@@ -52,10 +52,5 @@ Plik JSON opisujący ten graf wyglądałby tak:
   - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
   - uruchomić program **algorytm.py** przyciskiem **Run**
   - program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
-  
 
-Linux:
-W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
-chmod +x algorytm.py
-pip install -r requirements.txt
-./algorytm.py
+
