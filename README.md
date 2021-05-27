@@ -11,7 +11,7 @@
 #### 2.1. Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
-Wartość w i-tym wierszu i j-tej kolumnie jest wagą krawędzie prowadzącej od wierzchołka i do wierzchołka j
+Wartość w *i*-tym wierszu i *j*-tej kolumnie jest *wagą krawędzi* prowadzącej *od* wierzchołka *i do* wierzchołka *j*
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
