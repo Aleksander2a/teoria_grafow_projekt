@@ -17,8 +17,8 @@ Przykład:
 | Wierzchołki | 0 | 1 | 2 |
 |-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
-|      1      | 2 | 0 | 4 |
-|      2      | 6 | 7 | 0 |
+|      1      | 0 | 0 | 4 |
+|      2      | 0 | 0 | 0 |
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
