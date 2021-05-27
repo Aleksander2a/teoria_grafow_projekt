@@ -37,23 +37,23 @@ Plik JSON opisujący ten graf wyglądałby tak:
  - Istnieją 3 sposoby na uruchomienie programu.
  - Każdy sposób wymaga sklonowania [tego](https://github.com/Aleksander2a/teoria_grafow_projekt) repozytorium
  #### I sposób - uniwersalny
- - idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
- - uruchom plik **algorytm.exe**
- - powinno pojawić się nowe okno terminalowe, postępuj zgodnie ze wskazówkami programu
+ - Idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
+ - Uruchom plik **algorytm.exe**
+ - Powinno pojawić się nowe okno terminalowe, postępuj zgodnie ze wskazówkami programu
   #### II sposób - dla systemu Linux
-  - zlokalizować interpreter Python'a na swoim komputerze (program był tworzony za pomocą Python 3.8.10, więc może być konieczność zainstalowania tej wersji)
-  - idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
-  - *(w razie konieczności)* w pliku **algorytm.py** zmienić lokalizaje w pierwszej linijce, tak, aby odpowiadała tej na komputerze (domyślnie w pliku jest **/usr/bin/python3**)
-  - z poziomu wiersza poleceń wykonaj polecenie `chmod +x algorytm.py`
-  - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
-  - uruchom program wykonując `./algorytm.py`
-  - program uruchomi się w konsoli, postępuj zgodnie ze wskazówkami
+  - Zlokalizuj interpreter Python'a na swoim komputerze (program był tworzony za pomocą Python 3.8.10, więc może być konieczność zainstalowania tej wersji)
+  - Idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
+  - *(W razie konieczności)* w pliku **algorytm.py** zmień lokalizaje w pierwszej linijce, tak, aby odpowiadała tej na komputerze (domyślnie w pliku jest **/usr/bin/python3**)
+  - Z poziomu wiersza poleceń wykonaj polecenie `chmod +x algorytm.py`
+  - *(W razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
+  - Uruchom program wykonując `./algorytm.py`
+  - Program uruchomi się w konsoli, postępuj zgodnie ze wskazówkami
   #### III sposób - z wykorzystaniem zintegorwanego środowisa programistycznego (IDE)
-  - otwórz projekt w wybranym IDE (program powstawał z wykorzystaniem środowiska PyCharm)
-  - wybierz odpowiedni interpreter Python'a (najlepiej Python 3.8.10) oraz pozostałe ustawienia
-  - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
-  - uruchomić program **algorytm.py** przyciskiem **Run**
-  - program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
+  - Otwórz projekt w wybranym IDE (program powstawał z wykorzystaniem środowiska PyCharm)
+  - Wybierz odpowiedni interpreter Python'a (najlepiej Python 3.8.10) oraz pozostałe ustawienia
+  - *(W razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
+  - Uruchom program **algorytm.py** przyciskiem **Run**
+  - Program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
 
 #### 2.4. Dodawanie nowych grafów do analizy
 - Na start program posiada 3 przykładowe pliki zawierające informacje o trzech różnych grafach (przyklad1.json, przyklad2.json, przyklad3.json)
