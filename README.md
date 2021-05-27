@@ -8,7 +8,9 @@
 - Informacje o algorytmie znajdują się w pliku **informacje_o_algorytmie.docx** w katalogu **czesc_programistyczna/**
 ### 2. Implementacja
 - Wszystko co związane z implementacją jest zawarte w katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
-#### 2.1. Format danych wejściowych 
+#### 2.1. Działanie programu
+Program wczytuje dane opisujące graf z wybranego pliku, następnie podaje maksymalny przepływ w grafie oraz szczegółowe informacje dotyczące przepływu i przepustowości każdej krawędzi zawarte w specjalnej macierzy sąsiedztwa, w osobnym oknie pojawia się też wygenerowany szkic grafu 
+#### 2.2. Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
@@ -31,7 +33,7 @@ Plik JSON opisujący ten graf wyglądałby tak:
  [0, 0, 4],
  [0, 0, 0]]
 ```
-#### 2.2. Uruchomienie programu
+#### 2.3. Uruchomienie programu
  - Istnieją 3 sposoby na uruchomienie programu.
  - Każdy sposób wymaga sklonowania tego repozytorium
  #### I sposób - uniwersalny
@@ -53,7 +55,7 @@ Plik JSON opisujący ten graf wyglądałby tak:
   - uruchomić program **algorytm.py** przyciskiem **Run**
   - program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
 
-#### 2.3. Dodawanie nowych grafów do analizy
+#### 2.4. Dodawanie nowych grafów do analizy
 - Na start program posiada 3 przykładowe pliki zawierające informacje o trzech różnych grafach (przyklad1.json, przyklad2.json, przyklad3.json)
 - Można swobodnie dodawać nowe pliki do analizy, jeżeli spełniają one warunki:
   + pliki są zgodne z [**formatem danych wejściowych**](https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/README.md#21-format-danych-wej%C5%9Bciowych)
