@@ -30,8 +30,6 @@ for i in range(m_sasiedztwa.shape[0]):
         if m_sasiedztwa[i][j] != 0:
             graf.add_weighted_edges_from([(i, j, m_sasiedztwa[i][j])])
             graf[i][j]["przeplyw"] = 0                                  # inicjalizajca przeplywu krawedzi
-            graf[i][j]["poczatek"] = i
-            graf[i][j]["koniec"] = j
 
 ilosc_wierzcholkow = m_sasiedztwa.shape[0]
 
@@ -61,9 +59,7 @@ def stworz_siec_residualna(macierz):
         for j in range(macierz.shape[1]):
             if macierz[i][j] != 0:
                 graph.add_weighted_edges_from([(i, j, macierz[i][j])])
-                graph[i][j]["przeplyw"] = 0  # inicjalizajca przeplywu krawedzi
-                graph[i][j]["poczatek"] = i
-                graph[i][j]["koniec"] = j
+                graph[i][j]["przeplyw"] = 0
     return graph
 
 
@@ -73,7 +69,7 @@ def znajd_sciezke(G):
     minim_dlugosc = 10000
     for i in nx.all_simple_paths(G, zrodlo, ujscie):
         wszystkie_sciezki.append(i)
-        if len(i) < minim_dlugosc:
+        if len(i) < minim_dlugosc:                  # wybór najkrótszej ścieżki
             minim_dlugosc = len(i)
             sciezka = i
     return sciezka
@@ -127,8 +123,6 @@ for i in range(macierz_przeplywu.shape[0]):
     for j in range(macierz_przeplywu.shape[1]):
         if m_sasiedztwa[i][j] != 0:
             macierz_przeplywu[i][j] = graf[i][j]['przeplyw']
-
-graf_przeplywu = stworz_siec_residualna(macierz_przeplywu)
 
 print(0, "- Źródło   ", ilosc_wierzcholkow-1, "- Ujście")
 
