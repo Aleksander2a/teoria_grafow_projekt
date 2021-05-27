@@ -24,6 +24,13 @@ Reprezentacja macierzowa tego grafu wygląda następująco:
 |      0      | 0 | 3 | 1 |
 |      1      | 0 | 0 | 4 |
 |      2      | 0 | 0 | 0 |
+
+Plik JSON opisujący ten graf wyglądałby tak:
+```
+[[0, 3, 1],
+ [0, 0, 4],
+ [0, 0, 0]]
+```
   
 
 Linux:
