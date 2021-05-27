@@ -53,4 +53,9 @@ Plik JSON opisujący ten graf wyglądałby tak:
   - uruchomić program **algorytm.py** przyciskiem **Run**
   - program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
 
+#### 2.3. Dodawanie nowych grafów do analizy
+- Na start program posiada 3 przykładowe pliki zawierające informacje o trzech różnych grafach (przyklad1.json, przyklad2.json, przyklad3.json)
+- Można swobodnie dodawać nowe pliki do analizy, pod warunkami:
+  + pliki są zgodne z **formatem danych wejściowych**
+  + pliki znajdują się w **czesc_programistyczna/metoda_forda_fulkersona/** (lokalizacja zgodna z plikiem algorytm.exe lub algorytm.py - w zależności od sposobu uruchomienia)
 
