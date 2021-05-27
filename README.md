@@ -16,9 +16,7 @@ Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej
 Przykładowy graf: 
 <img align="center" width="200" height="200" src="https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/przyklad_grafu.jpg">
 
-<p align="right">
 Reprezentacja macierzowa tego grafu wygląda następująco: 
-  </p>
 | Wierzchołki | 0 | 1 | 2 |
 |-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
