@@ -34,7 +34,18 @@ Plik JSON opisujący ten graf wyglądałby tak:
 #### 2.2. Uruchomienie programu
  - Istnieją 3 sposoby na uruchomienie programu.
  - Każdy sposób wymaga sklonowania tego repozytorium
- ##### I sposób
+ #### I sposób - uniwersalny
+ - idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
+ - uruchom plik **algorytm.exe**
+ - powinno pojawić się nowe okno terminalowe, postępuj zgodnie ze wskazówkami programu
+  #### II sposób - dla systemu Linux
+  - zlokalizować interpreter Python'a na swoim komputerze (program był tworzony za pomocą Python 3.8.10, więc może być konieczność zainstalowania tej wersji)
+  - idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
+  - *(w razie konieczności)* w pliku **algorytm.py** zmienić lokalizaje w pierwszej linijce, tak, aby odpowiadała tej na komputerze (domyślnie w pliku jest **/usr/bin/python3**)
+  - z poziomu wiersza poleceń wykonaj polecenie `chmod +x algorytm.py`
+  - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
+  - uruchom program wykonując `./algorytm.py`
+  - program uruchomi się w konsoli, postępuj zgodnie ze wskazówkami
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
