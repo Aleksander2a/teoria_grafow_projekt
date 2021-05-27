@@ -1,14 +1,14 @@
 # Teoria grafów - metoda Forda-Fulkersona - projekt
 
-## Część analityczna
+## A. Część analityczna
 - Odpowiedzi do zadań z części analitycznej znajdują się w pliku **czesc_analityczna_aleksander_mazur.pdf** w katalogu **czesc_analityczna/**
 
-## Część programistyczna
-### Analiza algorytmu
+## B. Część programistyczna
+### 1. Analiza algorytmu
 - Informacje o algorytmie znajdują się w pliku **informacje_o_algorytmie.docx** w katalogu **czesc_programistyczna/**
-### Implementacja
+### 2. Implementacja
 - Wszystko co związane z implementacją jest zawarte w katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
-#### Format danych wejściowych 
+#### 2.1Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 
