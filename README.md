@@ -13,7 +13,7 @@
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
 
-**!!!** Zawsze należy pamiętać, że **źródło** jest **pierwszym** wierzchołkiem, a **ujście ostatnim** **!!!**
+**!!!** Zawsze należy pamiętać, że **źródło** jest **pierwszym (0)** wierzchołkiem, a **ujście ostatnim** **!!!**
 
 Przykładowy graf: 
 <img align="center" width="200" height="200" src="https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/przyklad_grafu.jpg">
