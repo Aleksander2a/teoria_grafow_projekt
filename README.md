@@ -8,7 +8,7 @@
 - Informacje o algorytmie znajdują się w pliku **informacje_o_algorytmie.docx** w katalogu **czesc_programistyczna/**
 ### 2. Implementacja
 - Wszystko co związane z implementacją jest zawarte w katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
-#### 2.1 Format danych wejściowych 
+#### 2.1. Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 
