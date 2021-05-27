@@ -12,6 +12,7 @@
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
+
 **!** Zawsze należy pamiętać, że **źródło** jest **pierwszym** wierzchołkiem, a **ujście ostatnim** 
 
 Przykładowy graf: 
