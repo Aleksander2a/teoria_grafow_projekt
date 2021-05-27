@@ -13,7 +13,11 @@
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
 
-Przykład:
+Przykładowy graf: 
+![Przykładowy graf](D:\Studia AGH\Teoria grafów\Projekt\czesc_analityczna\przyklad_grafu)
+Format: ![Alt Text](url)
+
+Reprezentacja macierzowa tego grafu wygląda następująco: 
 | Wierzchołki | 0 | 1 | 2 |
 |-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
