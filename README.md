@@ -46,6 +46,13 @@ Plik JSON opisujący ten graf wyglądałby tak:
   - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
   - uruchom program wykonując `./algorytm.py`
   - program uruchomi się w konsoli, postępuj zgodnie ze wskazówkami
+  #### III sposób - z wykorzystaniem zintegorwanego środowisa programistycznego (IDE)
+  - otwórz projekt w wybranym IDE (program powstawał z wykorzystaniem środowiska PyCharm)
+  - wybierz odpowiedni interpreter Python'a (najlepiej Python 3.8.10) oraz pozostałe ustawienia
+  - *(w razie konieczności)* doinstaluj wymagane pakiety za pomocą polecenia `pip install -r requirements.txt`
+  - uruchomić program **algorytm.py** przyciskiem **Run**
+  - program uruchomi się w konsoli środowiska, postępuj zgodnie ze wskazówkami
+  
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
