@@ -31,7 +31,10 @@ Plik JSON opisujący ten graf wyglądałby tak:
  [0, 0, 4],
  [0, 0, 0]]
 ```
-  
+#### 2.2. Uruchomienie programu
+ - Istnieją 3 sposoby na uruchomienie programu.
+ - Każdy sposób wymaga sklonowania tego repozytorium
+ ##### I sposób
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
