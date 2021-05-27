@@ -4,9 +4,9 @@
 - Odpowiedzi do zadań z części analitycznej znajdują się w pliku **czesc_analityczna_aleksander_mazur.pdf** w katalogu **czesc_analityczna/**
 
 ## Część programistyczna
-1. Analiza algorytmu
+### Analiza algorytmu
 - Informacje o algorytmie znajdują się w pliku **informacje_o_algorytmie.docx** w katalogu **czesc_programistyczna/**
-2. Implementacja
+### Implementacja
 - 
 
 Linux:
