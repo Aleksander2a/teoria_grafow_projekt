@@ -1,7 +1,11 @@
-# Teoria grafów - projekt
+# Teoria grafów - metoda Forda-Fulkersona - projekt
 
 ## Część analityczna
-Odpowiedzi do zadań z części analitycznej znajdują się w pliku czesc_analityczna_aleksander_mazur.pdf w katalogu teoria_grafow_projekt/czesc_analityczna/
+Odpowiedzi do zadań z części analitycznej znajdują się w pliku **czesc_analityczna_aleksander_mazur.pdf** w katalogu **czesc_analityczna/**
+
+## Część programistyczna
+- Informacje o algorytmie znajdują się w pliku **informacje_o_algorytmie.docx** w katalogu **czesc_programistyczna/**
+- 
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
