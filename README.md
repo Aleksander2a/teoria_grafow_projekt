@@ -16,12 +16,14 @@ Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej
 Przykładowy graf: 
 <img align="center" width="200" height="200" src="https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/przyklad_grafu.jpg">
 
+<p align="right">
 Reprezentacja macierzowa tego grafu wygląda następująco: 
 | Wierzchołki | 0 | 1 | 2 |
 |-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
 |      1      | 0 | 0 | 4 |
 |      2      | 0 | 0 | 0 |
+  </p>
 
 Linux:
 W razie konieczności zmienić sieżkę do interpretera pythona (plik algorytm.py, linijka 1)
