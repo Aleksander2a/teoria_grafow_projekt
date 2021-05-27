@@ -9,7 +9,7 @@
 ### 2. Implementacja
 - Wszystko co związane z implementacją jest zawarte w katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
 #### 2.1. Działanie programu
-Program wczytuje dane opisujące graf z wybranego pliku, następnie podaje maksymalny przepływ w grafie oraz szczegółowe informacje dotyczące przepływu i przepustowości każdej krawędzi zawarte w specjalnej macierzy sąsiedztwa, w osobnym oknie pojawia się też wygenerowany szkic grafu 
+Program wczytuje z wybranego pliku dane opisujące graf, następnie podaje maksymalny przepływ w grafie oraz szczegółowe informacje dotyczące przepływu i przepustowości każdej krawędzi zawarte w specjalnej macierzy sąsiedztwa, w osobnym oknie pojawia się też wygenerowany szkic grafu 
 #### 2.2. Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
 - Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
