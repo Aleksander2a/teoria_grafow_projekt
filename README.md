@@ -15,6 +15,7 @@ Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej
 
 Przykład:
 | Wierzchołki | 0 | 1 | 2 |
+|-------------|---|---|---|
 |      0      | 0 | 3 | 1 |
 |      1      | 2 | 0 | 4 |
 |      2      | 6 | 7 | 0 |
