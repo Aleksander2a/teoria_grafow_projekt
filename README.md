@@ -35,7 +35,7 @@ Plik JSON opisujący ten graf wyglądałby tak:
 ```
 #### 2.3. Uruchomienie programu
  - Istnieją 3 sposoby na uruchomienie programu.
- - Każdy sposób wymaga wykonania **fork**'a [tego](https://github.com/Aleksander2a/teoria_grafow_projekt) repozytorium **lub** pobrania zawartość [Source Code](https://github.com/Aleksander2a/teoria_grafow_projekt/archive/refs/tags/v1.0.zip) z [tej](https://github.com/Aleksander2a/teoria_grafow_projekt/releases/tag/v1.0) strony
+ - Każdy sposób wymaga wykonania **fork**'a [tego](https://github.com/Aleksander2a/teoria_grafow_projekt) repozytorium **lub** pobrania zawartość **Source code** z [tej](https://github.com/Aleksander2a/teoria_grafow_projekt/releases/tag/v1.0) strony (po pobraniu należy rozpakować plik)
  #### I sposób - uniwersalny
  - Idź do katalogu **czesc_programistyczna/metoda_forda_fulkersona/**
  - Uruchom plik **algorytm.exe**
