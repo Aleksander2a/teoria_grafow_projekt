@@ -59,5 +59,5 @@ Plik JSON opisujący ten graf wyglądałby tak:
 - Na start program posiada 3 przykładowe pliki zawierające informacje o trzech różnych grafach (przyklad1.json, przyklad2.json, przyklad3.json)
 - Można swobodnie dodawać nowe pliki do analizy, jeżeli spełniają one warunki:
   + pliki są zgodne z [**formatem danych wejściowych**](https://github.com/Aleksander2a/teoria_grafow_projekt/blob/main/README.md#22-format-danych-wej%C5%9Bciowych)
-  + pliki znajdują się w **czesc_programistyczna/metoda_forda_fulkersona/** (lokalizacja zgodna z plikiem algorytm.exe lub algorytm.py - w zależności od sposobu uruchomienia)
+  + pliki znajdują się w **czesc_programistyczna/metoda_forda_fulkersona/** (lub innej lokalizacji zgodnej z plikiem algorytm.exe bądź algorytm.py - w zależności od sposobu uruchomienia)
 
