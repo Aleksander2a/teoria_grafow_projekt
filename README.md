@@ -12,7 +12,7 @@
 Program wczytuje z wybranego pliku dane opisujące graf, następnie podaje maksymalny przepływ w grafie oraz szczegółowe informacje dotyczące przepływu i przepustowości każdej krawędzi zawarte w specjalnej macierzy sąsiedztwa, w osobnym oknie pojawia się też wygenerowany szkic grafu 
 #### 2.2. Format danych wejściowych 
 - Program wczytuje pliki zapisane w formacie JSON
-- Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami
+- Dane dostarczane są w postaci zmodyfikowanej macierzy sąsiedztwa, zawierającej informacje o wagach krawędzi pomiędzy wierzchołkami.
 Wartość w *i*-tym wierszu i *j*-tej kolumnie jest wagą krawędzi prowadzącej od wierzchołka *i* do wierzchołka *j* (0 oznacza brak krawędzi)
 
 **!!!** Zawsze należy pamiętać, że **źródło** jest **pierwszym (0)** wierzchołkiem, a **ujście ostatnim** **!!!**
